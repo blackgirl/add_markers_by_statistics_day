@@ -1,12 +1,13 @@
 // SET MAP CENTER
 var map;
-var berlin = new google.maps.LatLng( 52.530316, 13.405186 );
+// var center = global.scopes.formatData.center;
+center = new google.maps.LatLng( 52.530316, 13.405186 );
 
 // CREATE THE MAP
 function initialize() {
   var mapOptions = {
     zoom: 14,
-    center: berlin
+    center: center
   };
   map = new google.maps.Map( document.getElementById( 'map-canvas' ),
           mapOptions );

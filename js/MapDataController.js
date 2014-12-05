@@ -1,12 +1,9 @@
 function MapDataController($scope) {
     $scope.data = [];
-
-    $scope.usersImages = {};
-    $scope.iceServerInfo = [];
-
-    $scope.start;
-    $scope.end;
-    $scope.month;
+    $scope.period = [];
+    $scope.center;
+    $scope.month = '';
+    $scope.dayCount = 1;
 
     $scope.safeApply = function(fn) {
         var phase = this.$root.$$phase;
@@ -23,156 +20,49 @@ function MapDataController($scope) {
     global.scopes.formatData = angular.element($('body')).scope();
     global.scopes.map = angular.element($('#map-canvas')).scope();
 
-    $scope.data = [
-                    [{
+    $scope.data = [{
                       "SmsDateTime": "\/Date(1414882920000)\/",
                       Latitude: 59.13438315,
                       Longitude: 9.69306257,
                       "City": "Munich",
                       "TransactionId": "0987654321",
                       "LogId": 123
-                    }] , [{
-                      "SmsDateTime": "\/Date(1414973040000)\/",
+                    }, {
+                      "SmsDateTime": "\/Date(1414796520000)\/",
                       Latitude: 59.13837658,
                       Longitude: 9.65241432,
                       "City": "Munich",
                       "TransactionId": "0987654321",
                       "LogId": 123
-                    }] , [{
-                      "SmsDateTime": "\/Date(1415063160000)\/",
+                    }, {
+                      "SmsDateTime": "\/Date(1414800240000)\/",
                       Latitude: 59.13954382,
                       Longitude: 9.67434061,
                       "City": "Munich",
                       "TransactionId": "0987654321",
                       "LogId": 123
                     }, {
-                      "SmsDateTime": "\/Date(1415063160000)\/",
+                      "SmsDateTime": "\/Date(1414803960000)\/",
                       Latitude: 59.13261167,
                       Longitude: 9.64432288,
                       "City": "Munich",
                       "TransactionId": "0987654321",
                       "LogId": 123
-                    }] , [{
-                      "SmsDateTime": "\/Date(1415153280000)\/",
+                    }, {
+                      "SmsDateTime": "\/Date(1414807680000)\/",
                       Latitude: 59.14710459,
                       Longitude: 9.66406279,
                       "City": "Munich",
                       "TransactionId": "0987654321",
                       "LogId": 123
-                    }] , [{
-                      "SmsDateTime": "\/Date(1415243400000)\/",
+                    }, {
+                      "SmsDateTime": "\/Date(1414811400000)\/",
                       Latitude: 59.14530085,
                       Longitude: 9.67597591,
                       "City": "Munich",
                       "TransactionId": "0987654321",
                       "LogId": 123
-                    }] , [{
-                      "SmsDateTime": "\/Date(1415333520000)\/",
-                      Latitude: 59.13251478,
-                      Longitude: 9.68434636,
-                      "City": "Munich",
-                      "TransactionId": "0987654321",
-                      "LogId": 123
-                    }] , [{
-                      "SmsDateTime": "\/Date(1415423640000)\/",
-                      Latitude: 59.13261167,
-                      Longitude: 9.64432288,
-                      "City": "Munich",
-                      "TransactionId": "0987654321",
-                      "LogId": 123
-                    }] , [{
-                      "SmsDateTime": "\/Date(1415513760000)\/",
-                      Latitude: 59.12051348,
-                      Longitude: 9.64997225,
-                      "City": "Munich",
-                      "TransactionId": "0987654321",
-                      "LogId": 123
-                    }] , [{
-                      "SmsDateTime": "\/Date(1415603880000)\/",
-                      Latitude: 59.15057105,
-                      Longitude: 9.65304792,
-                      "City": "Munich",
-                      "TransactionId": "0987654321",
-                      "LogId": 123
-                    }] , [{
-                      "SmsDateTime": "\/Date(1415694000000)\/",
-                      Latitude: 59.13630624,
-                      Longitude: 9.69470594,
-                      "City": "Munich",
-                      "TransactionId": "0987654321",
-                      "LogId": 123
-                    }] , [{
-                      "SmsDateTime": "\/Date(1415784120000)\/",
-                      Latitude: 59.12233747,
-                      Longitude: 9.66267709,
-                      "City": "Munich",
-                      "TransactionId": "0987654321",
-                      "LogId": 123
-                    }] , [{
-                      "SmsDateTime": "\/Date(1415874240000)\/",
-                      Latitude: 59.11958397,
-                      Longitude: 9.64583988,
-                      "City": "Munich",
-                      "TransactionId": "0987654321",
-                      "LogId": 123
-                    }] , [{
-                      "SmsDateTime": "\/Date(1415964360000)\/",
-                      Latitude: 59.12417328,
-                      Longitude: 9.63591251,
-                      "City": "Munich",
-                      "TransactionId": "0987654321",
-                      "LogId": 123
-                    }] , [{
-                      "SmsDateTime": "\/Date(1416054480000)\/",
-                      Latitude: 59.14048703,
-                      Longitude: 9.64068703,
-                      "City": "Munich",
-                      "TransactionId": "0987654321",
-                      "LogId": 123
-                    }] , [{
-                      "SmsDateTime": "\/Date(1416144600000)\/",
-                      Latitude: 59.13035284,
-                      Longitude: 9.64312642,
-                      "City": "Munich",
-                      "TransactionId": "0987654321",
-                      "LogId": 123
-                    }] , [{
-                      "SmsDateTime": "\/Date(1416234720000)\/",
-                      Latitude: 59.13923814,
-                      Longitude: 9.64135541,
-                      "City": "Munich",
-                      "TransactionId": "0987654321",
-                      "LogId": 123
-                    }] , [{
-                      "SmsDateTime": "\/Date(1416324840000)\/",
-                      Latitude: 59.1485173,
-                      Longitude: 9.64419785,
-                      "City": "Munich",
-                      "TransactionId": "0987654321",
-                      "LogId": 123
-                    }] , [{
-                      "SmsDateTime": "\/Date(1416414960000)\/",
-                      Latitude: 59.12165761,
-                      Longitude: 9.68071532,
-                      "City": "Munich",
-                      "TransactionId": "0987654321",
-                      "LogId": 123
-                    }] , [{
-                      "SmsDateTime": "\/Date(1416505080000)\/",
-                      Latitude: 59.13258561,
-                      Longitude: 9.6417023,
-                      "City": "Munich",
-                      "TransactionId": "0987654321",
-                      "LogId": 123
-                    }] , [{
-                      "SmsDateTime": "\/Date(1416595200000)\/",
-                      "Latitude": "59.14529274",
-                      "Longitude": "9.68300565",
-                      "City": "Munich",
-                      "TransactionId": "0987654321",
-                      "LogId": 123
-                    }]
-                ];
+                    }];
 
     $scope.fullData = [];
 
@@ -187,8 +77,11 @@ function MapDataController($scope) {
             var day  = num.getUTCDate();
             var mon = num.getUTCMonth();
             var year = num.getFullYear();
+            var hours = num.getHours();
+            var minutes = num.getMinutes();
+            var seconds = num.getSeconds();
 
-            return [day, mon, year];
+            return [day, mon, year, hours, minutes, seconds];
         },
         getMonth: function( d ) {
             var m = [];
@@ -214,74 +107,60 @@ function MapDataController($scope) {
             $scope.end = $scope.formatData.getNormalDate( data[data.length-1][0].SmsDateTime );
             return { start: $scope.start, end: $scope.end };
         },
-        getLocations: function( d ) {
-            var y = [];
-            var data = d;
-            for(var i in data) {      
-                for(var o in data[i]) {
-                    var nu = new google.maps.LatLng( data[i][o].Latitude, data[i][o].Longitude );
-                    y.push( nu );
-                }
-            }
-            return y;
-        },
-        getLocation: function( d ) {
-          var l = [];
-          for( var a in d ) {
-            var nu = new google.maps.LatLng( d[a].Latitude, d[a].Longitude );
-            l.push( nu );
-          }
-          return l;
+        getLocation: function( la, lo ) {
+            return new google.maps.LatLng( la, lo );
         },
         daysInMonth: function( month, year ) {
             if( !year ) year = new Date().getFullYear();
+            if( month < 0 ) month = 12;
+            if( month == 13 ) month = 1;
+
             return new Date( year, month, 0 ).getDate();
         },
         addEmptyDays: function( d ) {
             var d = d;
-            var fullData = []; // [{ dDate: [ d, m, y ], dLoc: [ LatLng, .. ]}, {}, ..]
-            
-            $scope.formatData.getStartEnd();
-            var daysInMonth;
-            var month;
+      
+            var date = $scope.formatData.getNormalDate(d[0].SmsDateTime);
+            var daysInMonth = parseInt( $scope.formatData.daysInMonth( date[1], date[2] ));
+            var daysInPrevMonth = $scope.formatData.daysInMonth( parseInt( date[1]-1 ), date[2] );
+            var daysInNextMonth = $scope.formatData.daysInMonth( parseInt( date[1]+1 ), date[2] );
+      
+            var day = parseInt( date[0] );
+            var eachSide = 10;
+            var period = [];
 
-            var day = $scope.start[0];
-            var year = $scope.start[2];
-
-            var startMonth = $scope.start[1];
-            var endMonth = $scope.end[1];
-            var isOneMonth = startMonth == endMonth;
-
-            if( isOneMonth ) {
-              month = startMonth;
-              $scope.month = $scope.formatData.getMonth( month );
-              daysInMonth = $scope.formatData.daysInMonth( month, year );
-        
-              var endDay = $scope.end[0];
-
-              for( var i = 0; i < endDay; i++ ) {
-                var t = [ day+i, month, year ];
-                fullData.push({ dDate: t, dLoc: null, len: "—" });
-              }
-
-              for( var a in d ) {
-                var b = $scope.formatData.getNormalDate( d[a][0].SmsDateTime );
-                var l = $scope.formatData.getLocation( d[a] );
-                var ln = d[a].length;
-
-                for( var i = 0; i < endDay; i++ )
-                  if( fullData[ i ].dDate[0] == b[0] ) {
-                    fullData[ i ].dLoc = l;
-                    fullData[ i ].len = ln;
-                    break;
-                  }
-                
-              }
-            } else {
-              // TODO if period contains different month
+            // Add first half
+            for( var i = eachSide; i >= 0; i-- ) {
+              var t;
+              if( day-i > 0 ) t = day-i;
+              else t = parseInt( daysInPrevMonth-i-day );
+              period.push( t );
             }
+            // Add next halt
+            for( var i = 1; i <= eachSide; i++ ) {
+              var t;
+              if( day+i <= daysInMonth ) t = day+i;
+              else t = parseInt( day+i-daysInMonth );
+              period.push( t );
+            }
+            $scope.period = period; // period[ eachSide ] == day with data!
+
+            // Added new properties to data object
+            var ln = d.length;
+            for( var a in d ) {
+              d[a].SmsDateTime = $scope.formatData.getNormalDate( d[a].SmsDateTime );
+              d[a].Position = $scope.formatData.getLocation( d[a].Latitude, d[a].Longitude );                
+            }
+
+            d.days = $scope.dayCount;
+            d.countSms = ln;
+            d.day = date;
+
+            // Update global data object
             $scope.safeApply( function() {
-              $scope.fullData = fullData;
+              $scope.month = $scope.formatData.getMonth( date[1] );
+              center = d[0].Position;
+              $scope.fullData = d;
               global.fullData = $scope.fullData;
             });
         },
@@ -290,6 +169,7 @@ function MapDataController($scope) {
 
     angular.element(document).ready(function() {
       $scope.formatData.addEmptyDays( $scope.data );
+      fillLocations( $scope.fullData );
     });
 
 };

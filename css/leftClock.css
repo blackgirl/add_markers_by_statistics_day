@@ -1,0 +1,472 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+}
+
+#wrapper {
+	width: 340px;
+	/* margin: 0px auto; */
+	text-align: center;
+}
+
+.button {
+	font-family:"Myriad Pro", Arial, sans-serif;
+	font-size: 24px;
+	font-weight:bold;
+	color:#333;
+	text-decoration:none;
+	letter-spacing:-1px;
+}
+
+.clock {
+	display: block;
+	width: 240px;
+	height: 240px;
+	/* border:3px solid #FFF; */
+	background: none;
+	-moz-border-radius: 223px;
+	-webkit-border-radius: 223px;
+	border-radius: 223px;
+	/* padding: 20px; */
+	position:relative;
+}
+
+#centerPoint{
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background-color: rgba(255,255,255,.7);
+	position: absolute;
+	left: 49%;
+	top: 49%;
+}
+
+.clockhighlight1 {
+	display: block;
+	/* width: 340px; */
+	height: 240px;
+	background: none; 
+	-webkit-border-radius: 200px;
+	-moz-border-radius: 200px;
+	border-radius: 200px;
+	/* border:6px solid #FFF; */
+	/* padding: 16px; */
+}
+
+.clockface {
+	display: block;
+	/* width: 340px; */
+	height: 240px;
+	/* margin:0 auto; */
+	background: none;
+	-webkit-border-radius: 180px;
+	-moz-border-radius: 180px;
+	border-radius: 180px;
+	border:1px solid rgba(255,255,255,.5);
+	color: rgba(255,255,255,.5);
+}
+
+.numbers {
+	position: absolute;
+	display:block;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size:32px;
+}
+
+/*#numberone {
+	top: 85px;
+	right: 150px;
+}
+
+#numbertwo {
+	top: 135px;
+	right: 100px;
+}*/
+
+
+#numberthree {
+	top: 47%;
+	right: 5px;
+	font-size:18px;
+}
+
+/*#numberfour {
+	top: 265px;
+	right: 100px;
+}
+
+#numberfive {
+	top: 310px;
+	right: 150px;
+}*/
+
+#numbersix {
+	bottom: 0px;
+	right: 47%;
+	font-size:18px;
+}
+
+/*#numbereleven {
+	top: 85px;
+	left: 150px;
+}
+
+#numberten {
+	top: 135px;
+	left: 100px;
+}
+
+#numbereight {
+	top: 265px;
+	left: 100px;
+}
+
+#numberseven {
+	top: 310px;
+	left: 150px;
+}*/
+
+#numbernine {
+	top: 47%;
+	left: 5px;
+	font-size:18px;
+}
+
+#numbertwelve {
+	top:0px;
+	right: 47%;
+	font-size: 18px;
+}
+
+/*.minutes {
+	position: absolute;
+	width: 3px;
+	height: 15px;
+	top: 53px;
+	left: 220px;
+	display:none;
+	background: #8e8e8e;
+	-webkit-transform-origin: 50% 170px;
+	-moz-transform-origin: 50% 170px;
+}
+
+.fiveminutes {
+	position: absolute;
+	width: 3px;
+	height: 25px;
+	top: 53px;
+	display:none;
+	left: 220px;
+	background: #000;
+	-webkit-transform-origin: 50% 170px;
+	-moz-transform-origin: 50% 170px;
+}*/
+
+#one {
+	-webkit-transform: rotate(6deg);
+	-moz-transform: rotate(6deg);
+}
+#two {
+	-webkit-transform: rotate(12deg);
+	-moz-transform: rotate(12deg);
+}
+#three {
+	-webkit-transform: rotate(18deg);
+	-moz-transform: rotate(18deg);
+}
+#four {
+	-webkit-transform: rotate(24deg);
+	-moz-transform: rotate(24deg);
+}
+
+#five {
+	-webkit-transform: rotate(30deg);
+	-moz-transform: rotate(30deg);
+}
+
+#six {
+	-webkit-transform: rotate(36deg);
+	-moz-transform: rotate(36deg);
+}
+#seven {
+	-webkit-transform: rotate(42deg);
+	-moz-transform: rotate(42deg);
+}
+#eight {
+	-webkit-transform: rotate(48deg);
+	-moz-transform: rotate(48deg);
+}
+#nine {
+	-webkit-transform: rotate(54deg);
+	-moz-transform: rotate(54deg);
+}
+
+#ten {
+	-webkit-transform: rotate(60deg);
+	-moz-transform: rotate(60deg);
+}
+
+#eleven {
+	-webkit-transform: rotate(66deg);
+	-moz-transform: rotate(66deg);
+}
+#twelve {
+	-webkit-transform: rotate(72deg);
+	-moz-transform: rotate(72deg);
+}
+#thirteen {
+	-webkit-transform: rotate(78deg);
+	-moz-transform: rotate(78deg);
+}
+#fourteen {
+	-webkit-transform: rotate(84deg);
+	-moz-transform: rotate(84deg);
+}
+
+#fifteen {
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+}
+
+#sixteen {
+	-webkit-transform: rotate(96deg);
+	-moz-transform: rotate(96deg);
+}
+#seventeen {
+	-webkit-transform: rotate(102deg);
+	-moz-transform: rotate(102deg);
+}
+#eighteen {
+	-webkit-transform: rotate(108deg);
+	-moz-transform: rotate(108deg);
+}
+#nineteen {
+	-webkit-transform: rotate(114deg);
+	-moz-transform: rotate(114deg);
+}
+
+#twenty {
+	-webkit-transform: rotate(120deg);
+	-moz-transform: rotate(120deg);
+}
+
+#twentyone {
+	-webkit-transform: rotate(126deg);
+	-moz-transform: rotate(126deg);
+}
+#twentytwo {
+	-webkit-transform: rotate(132deg);
+	-moz-transform: rotate(132deg);
+}
+#twentythree {
+	-webkit-transform: rotate(138deg);
+	-moz-transform: rotate(138deg);
+}
+#twentyfour {
+	-webkit-transform: rotate(144deg);
+	-moz-transform: rotate(144deg);
+}
+
+#twentyfive {
+	-webkit-transform: rotate(150deg);
+	-moz-transform: rotate(150deg);
+}
+
+#twentysix {
+	-webkit-transform: rotate(156deg);
+	-moz-transform: rotate(156deg);
+}
+#twentyseven {
+	-webkit-transform: rotate(162deg);
+	-moz-transform: rotate(162deg);
+}
+#twentyeight {
+	-webkit-transform: rotate(168deg);
+	-moz-transform: rotate(168deg);
+}
+#twentynine {
+	-webkit-transform: rotate(174deg);
+	-moz-transform: rotate(174deg);
+}
+
+#thirty {
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+}
+
+#thirtyone {
+	-webkit-transform: rotate(186deg);
+	-moz-transform: rotate(186deg);
+}
+#thirtytwo {
+	-webkit-transform: rotate(192deg);
+	-moz-transform: rotate(192deg);
+}
+#thirtythree {
+	-webkit-transform: rotate(198deg);
+	-moz-transform: rotate(198deg);
+}
+
+#thirtyfour {
+	-webkit-transform: rotate(204deg);
+	-moz-transform: rotate(204deg);
+}
+
+#thirtyfive {
+	-webkit-transform: rotate(210deg);
+	-moz-transform: rotate(210deg);
+}
+#thirtysix {
+	-webkit-transform: rotate(216deg);
+	-moz-transform: rotate(216deg);
+}
+#thirtyseven {
+	-webkit-transform: rotate(222deg);
+	-moz-transform: rotate(222deg);
+}
+#thirtyeight {
+	-webkit-transform: rotate(228deg);
+	-moz-transform: rotate(228deg);
+}
+#thirtynine {
+	-webkit-transform: rotate(234deg);
+	-moz-transform: rotate(234deg);
+}
+#fourty {
+	-webkit-transform: rotate(240deg);
+	-moz-transform: rotate(240deg);
+}
+
+#fourtyone {
+	-webkit-transform: rotate(246deg);
+	-moz-transform: rotate(246deg);
+}
+
+#fourtytwo {
+	-webkit-transform: rotate(252deg);
+	-moz-transform: rotate(252deg);
+}
+#fourtythree {
+	-webkit-transform: rotate(258deg);
+	-moz-transform: rotate(258deg);
+}
+
+#fourtyfour {
+	-webkit-transform: rotate(264deg);
+	-moz-transform: rotate(264deg);
+}
+
+#fourtyfive {
+	-webkit-transform: rotate(270deg);
+	-moz-transform: rotate(270deg);
+}
+
+#fourtysix {
+	-webkit-transform: rotate(276deg);
+	-moz-transform: rotate(276deg);
+}
+#fourtyseven {
+	-webkit-transform: rotate(282deg);
+	-moz-transform: rotate(282deg);
+}
+#fourtyeight {
+	-webkit-transform: rotate(288deg);
+	-moz-transform: rotate(288deg);
+}
+#fourtynine {
+	-webkit-transform: rotate(294deg);
+	-moz-transform: rotate(294deg);
+}
+
+#fifty {
+	-webkit-transform: rotate(300deg);
+	-moz-transform: rotate(300deg);
+}
+
+#fiftyone {
+	-webkit-transform: rotate(306deg);
+	-moz-transform: rotate(306deg);
+}
+
+#fiftytwo {
+	-webkit-transform: rotate(312deg);
+	-moz-transform: rotate(312deg);
+}
+#fiftythree {
+	-webkit-transform: rotate(318deg);
+	-moz-transform: rotate(318deg);
+}
+
+#fiftyfour {
+	-webkit-transform: rotate(324deg);
+	-moz-transform: rotate(324deg);
+}
+
+#fiftyfive {
+	-webkit-transform: rotate(330deg);
+	-moz-transform: rotate(330deg);
+}
+
+#fiftysix {
+	-webkit-transform: rotate(336deg);
+	-moz-transform: rotate(336deg);
+}
+#fiftyseven {
+	-webkit-transform: rotate(342deg);
+	-moz-transform: rotate(342deg);
+}
+#fiftyeight {
+	-webkit-transform: rotate(348deg);
+	-moz-transform: rotate(348deg);
+}
+#fiftynine {
+	-webkit-transform: rotate(354deg);
+	-moz-transform: rotate(354deg);
+}
+
+#sixty {
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+}
+
+#minhand {
+	position: absolute;
+	width: 2px;
+	height: 110px;
+	top: 10px;
+	left: 50%;
+	/*background: #000;*/
+	-webkit-transform-origin: 50% 110px;
+	-moz-transform-origin: 50% 110px;
+}
+
+#hourhand {
+	position: absolute;
+	width: 2px;
+	height: 80px;
+	top: 40px;
+	left: 50%;
+	/*background: #000;*/
+	-webkit-transform-origin: 50% 80px;
+	-moz-transform-origin: 50% 80px;
+}
+#hourhand, #minhand {
+	background: rgba(255,255,255,.5);
+	/*background: url(arr.jpg) no-repeat;*/
+}
+
+/*#sechand {
+	position: absolute;
+	width: 4px;
+	height: 160px;
+	top: 90px;
+	left: 220px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 5px;
+	border-radius: 7px;
+	background: red;
+	-webkit-transform-origin: 50% 131px;
+	-moz-transform-origin: 50% 131px;
+}*/
+
+

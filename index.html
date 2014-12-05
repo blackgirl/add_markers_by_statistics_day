@@ -7,7 +7,7 @@
     <link rel="stylesheet/less" type="text/css" href="css/mixins.less">
     <link rel="stylesheet/less" type="text/css" href="css/style.less">
 
-    <link rel="stylesheet" type="text/css" href="js/jquery.tzineClock/jquery.tzineClock.css" />
+    <link rel="stylesheet" type="text/css" href="css/leftClock.css" />
 
     <script src="js/less.min.js" type="text/javascript"></script>
 
@@ -16,69 +16,12 @@
     <script src="js/app.js" type="text/javascript"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 
-    <script src="js/map.js" type="text/javascript"></script>
-    <script src="js/Formatter.js" type="text/javascript"></script>
+    <script src="js/appGlobal.js" type="text/javascript"></script>
     <script src="js/MapDataController.js" type="text/javascript"></script>
     <script src="js/gMapController.js" type="text/javascript"></script>
-    <script src="js/appGlobal.js" type="text/javascript"></script>
-
-    <!--<script type="text/javascript" src="js/jquery.tzineClock/jquery.tzineClock.js"></script>-->
-    <script src="js/jquery.knob.js"></script>
-            <script>
-            $(function($) {
-
-                $(".knob").knob({
-                    change : function (value) {
-                        //console.log("change : " + value);
-                    },
-                    release : function (value) {
-                        //console.log(this.$.attr('value'));
-                        console.log("release : " + value);
-                    },
-                    cancel : function () {
-                        console.log("cancel : ", this);
-                    },
-                    /*format : function (value) {
-                        return value + '%';
-                    },*/
-                    draw : function () {
-console.log('DRAW11');
-                        // "tron" case
-                        if(this.$.data('skin') == 'tron') {
-
-                            this.cursorExt = 0.3;
-
-                            var a = this.arc(this.cv)  // Arc
-                                , pa                   // Previous arc
-                                , r = 1;
-
-                            this.g.lineWidth = this.lineWidth;
-
-                            if (this.o.displayPrevious) {
-                                pa = this.arc(this.v);
-                                this.g.beginPath();
-                                this.g.strokeStyle = this.pColor;
-                                this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, pa.s, pa.e, pa.d);
-                                this.g.stroke();
-                            }
-
-                            this.g.beginPath();
-                            this.g.strokeStyle = r ? this.o.fgColor : this.fgColor ;
-                            this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, a.s, a.e, a.d);
-                            this.g.stroke();
-
-                            this.g.lineWidth = 2;
-                            this.g.beginPath();
-                            this.g.strokeStyle = this.o.fgColor;
-                            this.g.arc( this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
-                            this.g.stroke();
-
-                            return false;
-                        }
-                    }
-                });
-            });
-        </script>
+    <script src="js/map.js" type="text/javascript"></script>
+    <!--<script src="js/Formatter.js" type="text/javascript"></script>
+    <script src="js/leftClock.js" language="javascript"></script>-->
   </head>
   <body ng-controller="MapDataController">
 
@@ -97,7 +40,7 @@ console.log('DRAW11');
       </div>
 
       <div class="panel-body">
-        <div class="triangle" style="display:none;"></div>
+        <div class="triangle"></div>
         <div class="panel-top-nav-wrapper left">
           <span class="panel-top-nav nav-left" ng-click="">
             <i class="fa fa-angle-left"></i>
@@ -105,18 +48,19 @@ console.log('DRAW11');
         </div>
         <div class="panel-top-statistic">
 
-          <div class="days {{$index}}" ng-repeat="day in fullData">
+          <div class="days {{'d-'+$index}}" ng-repeat="day in period">
             <span class="day">
-              <!-- номер дня / дата -->
-              {{day.dDate[0]}}
+              {{day}}
             </span>
-            <div class="statistic">
-              <span class="icon-small user-icon-small" ng-hide="{{day.len == '—'}}">
-                <i class="fa {{day.len == '—'?'':'fa-user'}}"></i>
+            <div class="statistic" ng-switch="$index == 10">
+              <span ng-switch-when="true" class="icon-small user-icon-small">
+                <i class="fa fa-user"></i>
               </span>
-              <span class="visit-counter">
-                <!-- количество обьектов статистики этого дня -->
-                {{day.len}}
+              <span ng-switch-when="true" class="visit-counter">
+                {{fullData.countSms}}
+              </span>
+              <span ng-switch-when="false" class="visit-counter">
+                <i class="fa fa-circle"></i>
               </span>
             </div>
           </div>
@@ -144,7 +88,21 @@ console.log('DRAW11');
 
       <div class="panel-body main-top-body">
         <div class="circle" id="circle">
-          <input class="knob" data-width="100%" value="0">
+            <div id="wrapper">
+              <div class="clock">
+                <div class="clockhighlight1">
+                  <div class="clockface">
+                    <div class="numbers" id="numbertwelve">12</div>
+                    <div class="numbers" id="numberthree">3</div>
+                    <div class="numbers" id="numbersix">6</div>
+                    <div class="numbers" id="numbernine">9</div>
+                    <div id="hourhand"></div>
+                    <div id="minhand"></div>
+                    <div id="centerPoint"></div>
+                   </div>
+                </div>
+              </div> 
+            </div> 
         </div>
       </div>
 
@@ -186,7 +144,7 @@ console.log('DRAW11');
             </span>
           </a>
           <a href="#">
-            <span class="play-btn play" onclick="drop()">
+            <span class="play-btn play">
               <i class="fa fa-play"></i>
             </span>
           </a>
@@ -200,6 +158,5 @@ console.log('DRAW11');
     </div>
   </div>
   <div id="map-canvas" ng-consroller="gMapController"></div>
-
   </body>
 </html>
