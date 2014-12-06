@@ -6,7 +6,7 @@ center = new google.maps.LatLng( 52.530316, 13.405186 );
 // CREATE THE MAP
 function initialize() {
   var mapOptions = {
-    zoom: 14,
+    zoom: 7,
     center: center
   };
   map = new google.maps.Map( document.getElementById( 'map-canvas' ),

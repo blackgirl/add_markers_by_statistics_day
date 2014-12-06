@@ -168,8 +168,21 @@ function MapDataController($scope) {
     };
 
     angular.element(document).ready(function() {
-      $scope.formatData.addEmptyDays( $scope.data );
-      fillLocations( $scope.fullData );
+      $.ajax({
+          url: 'http://app.jakten.no/home/GetStats',
+          type:'post',
+          data: {
+              days : $scope.dayCount
+          },
+          success:function( data ){
+              $scope.safeApply(function(){
+                  $scope.data = data.Campaign[0].Data;
+                  console.log($scope.data);
+              });
+              $scope.formatData.addEmptyDays( $scope.data );
+              fillLocations( $scope.fullData );
+          }
+      }); 
     });
 
 };
