@@ -12,6 +12,7 @@
  //    };
  	var data;
     var marker;
+    var markers = [];
 	var iterator = 0;
 	var neighborhoods = [];
 
@@ -28,7 +29,7 @@
 	    for ( var i = 0; i < neighborhoods.length; i++ ) {
       		setTimeout( function() {
         		addMarker();
-      		}, i * 400 );
+      		}, i * 100 );
 	  	}
 	}
 
@@ -71,22 +72,28 @@ function getMarkerTime( d ) {
 
 	// CREATE EACH MARKER
 	function addMarker() {
-
 	  	// if( marker ) marker.setMap( null );
-	  	map.setCenter(neighborhoods[iterator]);
+	  	// map.setCenter(neighborhoods[iterator]);
 	  	marker = new google.maps.Marker({
 		    position: neighborhoods[iterator],
 		    map: map,
 		    draggable: false,
-		    // icon: new google.maps.MarkerImage(
-		    //     "http://chart.googleapis.com/chart?chst=d_bubble_text_small&chld=bb|Label%20"+iterator+"|FF8080|000000",
-		    //     null, null, new google.maps.Point(0, 42)),
+		    // icon: "img/orange-circle-icon.png",
+		    icon: new google.maps.MarkerImage(
+		        "img/orange-circle-icon.png",
+		        null, null,
+		        new google.maps.Point(0, 10),
+		        new google.maps.Size(10, 10)),
 		    // shadow: new google.maps.MarkerImage(
 		    //     "http://chart.googleapis.com/chart?chst=d_bubble_text_small_shadow&chld=bb|Label%20"+iterator,
 		    //     null, null, new google.maps.Point(0, 45)),
 		    animation: google.maps.Animation.DROP,
 	  	});
+        // markers.push(marker);
   		getMarkerTime( data[iterator].SmsDateTime );
 		iterator++;
+		// if(iterator == neighborhoods.length) {
+			  // var markerCluster = new MarkerClusterer(map, markers);
+		// }
 	};
 // };

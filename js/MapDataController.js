@@ -20,50 +20,6 @@ function MapDataController($scope) {
     global.scopes.formatData = angular.element($('body')).scope();
     global.scopes.map = angular.element($('#map-canvas')).scope();
 
-    $scope.data = [{
-                      "SmsDateTime": "\/Date(1414882920000)\/",
-                      Latitude: 59.13438315,
-                      Longitude: 9.69306257,
-                      "City": "Munich",
-                      "TransactionId": "0987654321",
-                      "LogId": 123
-                    }, {
-                      "SmsDateTime": "\/Date(1414796520000)\/",
-                      Latitude: 59.13837658,
-                      Longitude: 9.65241432,
-                      "City": "Munich",
-                      "TransactionId": "0987654321",
-                      "LogId": 123
-                    }, {
-                      "SmsDateTime": "\/Date(1414800240000)\/",
-                      Latitude: 59.13954382,
-                      Longitude: 9.67434061,
-                      "City": "Munich",
-                      "TransactionId": "0987654321",
-                      "LogId": 123
-                    }, {
-                      "SmsDateTime": "\/Date(1414803960000)\/",
-                      Latitude: 59.13261167,
-                      Longitude: 9.64432288,
-                      "City": "Munich",
-                      "TransactionId": "0987654321",
-                      "LogId": 123
-                    }, {
-                      "SmsDateTime": "\/Date(1414807680000)\/",
-                      Latitude: 59.14710459,
-                      Longitude: 9.66406279,
-                      "City": "Munich",
-                      "TransactionId": "0987654321",
-                      "LogId": 123
-                    }, {
-                      "SmsDateTime": "\/Date(1414811400000)\/",
-                      Latitude: 59.14530085,
-                      Longitude: 9.67597591,
-                      "City": "Munich",
-                      "TransactionId": "0987654321",
-                      "LogId": 123
-                    }];
-
     $scope.fullData = [];
 
     $scope.formatData = {
@@ -124,7 +80,6 @@ function MapDataController($scope) {
             var daysInMonth = parseInt( $scope.formatData.daysInMonth( date[1], date[2] ));
             var daysInPrevMonth = $scope.formatData.daysInMonth( parseInt( date[1]-1 ), date[2] );
             var daysInNextMonth = $scope.formatData.daysInMonth( parseInt( date[1]+1 ), date[2] );
-      
             var day = parseInt( date[0] );
             var eachSide = 10;
             var period = [];
@@ -133,7 +88,7 @@ function MapDataController($scope) {
             for( var i = eachSide; i >= 0; i-- ) {
               var t;
               if( day-i > 0 ) t = day-i;
-              else t = parseInt( daysInPrevMonth-i-day );
+              else t = parseInt( daysInPrevMonth-i+day );
               period.push( t );
             }
             // Add next halt
@@ -164,25 +119,39 @@ function MapDataController($scope) {
               global.fullData = $scope.fullData;
             });
         },
+    };
+
+    $scope.requests = {
+      getData: function( onSuccess ) {
+        $.ajax({
+          url: 'http://app.jakten.no/home/GetStats',
+          type:'post',
+          data: {
+              days : 21
+              // days : $scope.dayCount
+          },
+          success: function(data) {
+            onSuccess( data );
+          }
+        });
+      },
 
     };
 
     angular.element(document).ready(function() {
-      $.ajax({
-          url: 'http://app.jakten.no/home/GetStats',
-          type:'post',
-          data: {
-              days : $scope.dayCount
-          },
-          success:function( data ){
+      $scope.requests.getData( function( data ){
+              // $scope.safeApply(function(){
+              //     $scope.data = data.Campaign[0].Data;
+              // });
               $scope.safeApply(function(){
+                $scope.campaign = data.Campaign;
                   $scope.data = data.Campaign[0].Data;
-                  console.log($scope.data);
               });
               $scope.formatData.addEmptyDays( $scope.data );
               fillLocations( $scope.fullData );
+              // console.log(data);
           }
-      }); 
+      );
     });
 
 };

@@ -4,23 +4,24 @@
     <meta charset="utf-8">
     <title>markers</title>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet/less" type="text/css" href="css/mixins.less">
-    <link rel="stylesheet/less" type="text/css" href="css/style.less">
+    <link rel="stylesheet/less" href="css/mixins.less">
+    <link rel="stylesheet/less" href="css/style.less">
 
-    <link rel="stylesheet" type="text/css" href="css/leftClock.css" />
+    <link rel="stylesheet" href="css/leftClock.css" />
 
-    <script src="js/less.min.js" type="text/javascript"></script>
+    <script src="js/less.min.js"></script>
 
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="js/angular.js" type="text/javascript"></script>
-    <script src="js/app.js" type="text/javascript"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/app.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.6/src/markerclusterer.js"></script>
 
-    <script src="js/appGlobal.js" type="text/javascript"></script>
-    <script src="js/MapDataController.js" type="text/javascript"></script>
-    <script src="js/gMapController.js" type="text/javascript"></script>
-    <script src="js/map.js" type="text/javascript"></script>
-    <!--<script src="js/Formatter.js" type="text/javascript"></script>
+    <script src="js/appGlobal.js"></script>
+    <script src="js/MapDataController.js"></script>
+    <script src="js/gMapController.js"></script>
+    <script src="js/map.js"></script>
+    <!--<script src="js/Formatter.js"></script>
     <script src="js/leftClock.js" language="javascript"></script>-->
   </head>
   <body ng-controller="MapDataController">
@@ -48,7 +49,7 @@
         </div>
         <div class="panel-top-statistic">
 
-          <div class="days {{'d-'+$index}}" ng-repeat="day in period">
+          <div class="days {{'d-'+$index}}" ng-repeat="day in period track by $index">
             <span class="day">
               {{day}}
             </span>
